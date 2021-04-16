@@ -3,17 +3,18 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Main from './components/Main';
-import { Store } from './index';
+import { IUser, IAvatar } from './index';
 
 interface AppProps {
-  store: Store;
+  user: IUser;
+  avatar: IAvatar;
 }
 
-function App({ store }: AppProps): JSX.Element {
+function App({ user, avatar }: AppProps): JSX.Element {
   return (
     <div>
-      <Header user={store.user} />
-      <Main avatar={store.avatar} />
+      <Header user={user} />
+      <Main avatar={avatar} />
       <Footer />
     </div>
   );

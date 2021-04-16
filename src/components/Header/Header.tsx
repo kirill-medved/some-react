@@ -1,9 +1,9 @@
 import React from 'react';
 import header from './Header.module.css';
-import { User } from '../../index';
+import { IUser } from '../../index';
 
 interface HeaderProps {
-  user: User;
+  user: IUser;
 }
 
 const Header = ({ user }: HeaderProps): JSX.Element => {

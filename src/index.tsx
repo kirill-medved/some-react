@@ -4,22 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-export interface User {
+export interface IUser {
   firstName: string;
   lastName: string;
 }
 
-export interface Avatar {
+export interface IAvatar {
   image: string;
   alt: string;
 }
 
-export interface Store {
-  user: User;
-  avatar: Avatar;
+export interface IStore {
+  user: IUser;
+  avatar: IAvatar;
 }
 
-const store: Store = {
+const store: IStore = {
   user: {
     firstName: 'Kirill',
     lastName: 'Medved',
@@ -33,7 +33,7 @@ const store: Store = {
 
 ReactDOM.render(
   <React.StrictMode>
-    <App store={store} />
+    <App user={store.user} avatar={store.avatar} />
   </React.StrictMode>,
   document.getElementById('root'),
 );
