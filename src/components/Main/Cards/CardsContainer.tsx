@@ -1,6 +1,7 @@
 import React from 'react';
 import { mockedApiCall } from '../../../api/mockedApi';
 import Card from './Card';
+import cardsContainer from './CardsContainer.module.css';
 
 type CardProps = {
   id?: number;
@@ -16,14 +17,12 @@ class CardsContainer extends React.Component {
   };
 
   componentDidMount(): void {
-    this.setState({
-      cards: this.getCards(),
-    });
+    this.getCards();
   }
 
-  getCards = async () => {
+  getCards: () => void = async () => {
     const cards = await mockedApiCall();
-    return cards;
+    this.setState({ cards });
   };
 
   render() {
@@ -40,7 +39,7 @@ class CardsContainer extends React.Component {
             />
           ))
         : 'No cards yet';
-    return <div>{cardsElements}</div>;
+    return <div className={cardsContainer.gallery}>{cardsElements}</div>;
   }
 }
 
